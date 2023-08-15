@@ -5,8 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { PasswordRecoveryComponent } from './password-recovery/password-recovery.component';
+import { RegisterComponent } from './modules/register/register.component';
+import { PasswordRecoveryComponent } from './modules/password-recovery/password-recovery.component';
+import { DefaultLayoutComponent } from './modules/default-layout/default-layout.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PasswordRecoveryComponent } from './password-recovery/password-recovery
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    PasswordRecoveryComponent
+    PasswordRecoveryComponent,
+    DefaultLayoutComponent
   ],
   imports: [
     BrowserModule,

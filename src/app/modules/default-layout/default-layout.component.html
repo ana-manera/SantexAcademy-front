@@ -1,0 +1,58 @@
+<div class="sidenav-container">
+    <div class="sidenav bg-primary" [ngClass]="{ 'open': isSidenavOpen }">
+        <a routerLink="/home" class="nav_link active logo">
+            <i class="bx bx-layer bx-sm nav_icon"></i>
+            <span class="nav_name" [ngClass]="{ 'show': isSidenavOpen }">NOC</span>
+          </a>
+      <div class="nav_list">
+        <a routerLink="/dashboard" class="nav_link active">
+          <i class="bx bx-grid-alt bx-sm nav_icon"></i>
+          <span class="nav_name" [ngClass]="{ 'show': isSidenavOpen }">Dashboard</span>
+        </a>
+        <a routerLink="/users" class="nav_link">
+          <i class="bx bx-user bx-sm nav_icon"></i>
+          <span class="nav_name" [ngClass]="{ 'show': isSidenavOpen }">Users</span>
+        </a>
+        <a routerLink="/messages" class="nav_link">
+          <i class="bx bx-message-square-detail bx-sm nav_icon"></i>
+          <span class="nav_name" [ngClass]="{ 'show': isSidenavOpen }">Messages</span>
+        </a>
+        <a routerLink="/logout" class="nav_link">
+          <i class="bx bx-log-out bx-sm nav_icon"></i>
+          <span class="nav_name" [ngClass]="{ 'show': isSidenavOpen }">SignOut</span>
+        </a>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="header">
+        <div class="menu-icon" (click)="toggleSidenav()">
+          <i class="bx" [ngClass]="isSidenavOpen ? 'bx-x' : 'bx-menu'"></i>
+        </div>
+        <div class="search rounded-pill bg-white">
+          <div class="input-group rounded-pill p-1">
+            <div class="input-group-prepend border-0">
+              <span class="input-group-text 
+                bg-white border-0 
+                rounded-pill">
+                <i class="bx bx-search bx-sm"></i>
+              </span>
+            </div>
+            <input type="search" 
+            placeholder="Buscar Cursos" 
+            aria-describedby="button-addon4" 
+            class="search-input form-control bg-white border-0 rounded-pill">
+          </div>
+        </div>
+        <div class="user-icons">
+          <i class='bx bx-user nav_icon bx-sm'></i>
+        </div>
+      </div>
+      
+      
+      <!-- Contenido principal -->
+      <div class="content" [ngClass]="{ 'open': isSidenavOpen }">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  
