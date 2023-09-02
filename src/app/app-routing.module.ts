@@ -6,6 +6,7 @@ import { RegisterComponent } from './modules/register/register.component';
 import { PasswordRecoveryComponent } from './modules/password-recovery/password-recovery.component';
 import { DefaultLayoutComponent } from './modules/default-layout/default-layout.component';
 import { DashboardPageComponent } from './modules/dashboard/dashboard-page/dashboard-page.component';
+import { CourseComponent } from './modules/course/course.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'dashboard', component: DashboardPageComponent },
-      { path: 'messages', component: HomeComponent },
+      { path: 'courses', component: CourseComponent },
+      
     ],
   },
   { path: '**', redirectTo: 'login' },
