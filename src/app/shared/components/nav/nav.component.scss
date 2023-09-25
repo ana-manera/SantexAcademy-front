@@ -1,0 +1,73 @@
+// Custom Theming for Angular Material
+@use '@angular/material' as mat;
+@import '../../../../custom-theme.scss';
+
+
+.dashboard {
+  background-color: mat.get-color-from-palette($my-palette, 800) !important;
+  padding: 12px 0 5px 0;
+}
+
+::ng-deep.sidenav-container {
+  height: 100%;
+
+  .sidenav {
+    width: 230px;
+    top: 56px !important;
+    box-shadow: none;
+    background-color: mat.get-color-from-palette($my-palette, 700);
+
+    .mat-drawer-inner-container::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .mat-drawer-inner-container::-webkit-scrollbar-thumb {
+      background-color: mat.get-color-from-palette(mat.$teal-palette, 600);
+      border-radius: 10px;
+    }
+
+    .mat-drawer-inner-container::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .mat-toolbar {
+      background: inherit;
+    }
+
+    .sidenav-logo {
+      display: flex;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: #fff;
+
+      img {
+        max-width: 100px;
+        margin: 12px auto;
+      }
+
+    }
+  }
+
+  mat-nav-list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .link {
+      margin: 16px auto;
+
+      a {
+        text-decoration: none;
+
+        span {
+          text-align: center;
+          font-size: 1.4vw;
+          color: mat.get-color-from-palette($my-palette, 50) !important;
+        }
+      }
+
+    }
+
+  }
+}

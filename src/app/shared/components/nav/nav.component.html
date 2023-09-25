@@ -1,0 +1,50 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <div class="sidenav-logo">
+      <img
+        src="assets/images/logo.jpeg"
+        alt="E19 logo"
+        *ngIf="isHandset$ | async"
+      />
+    </div>
+    <mat-nav-list>
+      <div class="link">
+        <a (click)="drawerToggle()" routerLink="/home/dashboard/">
+          <span>Dashboard</span>
+        </a>
+      </div>
+
+      <div class="link">
+        <a (click)="drawerToggle()" routerLink="/home/courses/">
+          <i class="bx bx-user bx-sm nav_icon"></i>
+          <span>Courses</span>
+        </a>
+      </div>
+      <div class="link">
+        <a (click)="drawerToggle()" routerLink="/home/about/">
+          <span>About</span>
+        </a>
+      </div>
+      <div class="link">
+        <a (click)="drawerToggle()" routerLink="/home/shop/">
+          <span>Shop</span>
+        </a>
+      </div>
+      <div class="link">
+        <a (click)="drawerToggle()" routerLink="/home/contact/">
+          <span>Contact</span>
+        </a>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" [ngClass]="{mobil: isHandset$ | async}">
+  <button mat-button color="accent" class="menu-button" (click)="toggle()">
+    <mat-icon color="accent">{{ isOpen ? "menu_open" : "menu" }}</mat-icon>
+  </button>
+
+  <div class="toolbar-user">
+    <button class="toolbar-logout" aria-label="Cuenta">
+      <mat-icon color="primary">account_circle</mat-icon>
+    Usuario  <!-- <p>{{ userData?.name }}</p>-->
+    </button>
+    <button mat-icon-button aria-label="Salir" (click)="logOut()" matTooltip="Cerrar sesión" matTooltipPosition="below">
+      <mat-icon color="primary">exit_to_app</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
