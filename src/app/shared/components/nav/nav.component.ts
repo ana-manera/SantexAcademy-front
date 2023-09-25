@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { MatSidenav } from '@angular/material/sidenav';
 import { CommunicationService } from 'src/app/core/services/communication/communication.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
