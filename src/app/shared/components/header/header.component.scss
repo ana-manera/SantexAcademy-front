@@ -1,0 +1,65 @@
+// Custom Theming for Angular Material
+@use '@angular/material' as mat;
+@import '../../../../custom-theme.scss';
+
+
+mat-toolbar{
+  position: sticky;
+    top: 0;
+    z-index: 100;
+    justify-content: space-between;
+  .toolbar-logout {
+    display: flex;
+    margin: auto auto auto 30px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: #fff;
+
+    mat-icon{
+      margin-right: 8px;
+    }
+    p {
+      margin: auto auto auto 10px;
+    }
+  }
+
+  .toolbar-logo {
+    display: flex;
+    max-width: 130px;
+    margin: 0 auto;
+  }
+
+
+  button {
+    background-color: inherit;
+    border: none;
+    color: white
+  }
+
+  .menu-button {
+    margin-right: 24px;
+    min-width: 0;
+    padding: 0;
+    line-height: normal;
+  }
+
+  .toolbar-user {
+    max-width: 300px;
+    display: flex;
+
+  }
+
+}
+
+mat-toolbar.mobil {
+  .toolbar-logo {
+    max-width: 55px;
+  }
+  .toolbar-user {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+
+  }
+}

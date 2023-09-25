@@ -1,0 +1,122 @@
+.sidenav-container {
+  display: flex;
+}
+
+.sidenav {
+  width: 60px;
+  min-height: 100vh;
+  background-color: #333;
+  color: #fff;
+  overflow-y: auto;
+  z-index: 999;
+  transition: width 0.5s ease;
+}
+
+.sidenav.open {
+  width: 250px;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  background-color: #f1f1f1;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.menu-icon {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 40px;
+  margin-right: 10px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+.content.open {
+  margin-left: 100px;
+}
+
+.nav_list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.nav_link {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.nav_link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav_logo-icon {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  justify-content: center;
+}
+.logo {
+  margin-top: 15px;
+}
+.open .nav_logo-name, .nav_logo-icon {
+  display: block;
+  margin-left: 10px;
+}
+
+.nav_name, .nav_logo-name {
+  display: none;
+}
+
+.open .nav_name, .nav_logo-name {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.user-icons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.user-icons .nav_icon {
+  font-size: 24px;
+  color: #333;
+  margin: 0 5px;
+}
+
+.search {
+  margin-left: 20px;
+}
+
+.search-input {
+  transition: width 0.5s ease;
+}
