@@ -1,0 +1,59 @@
+
+header {
+    background-color: #673AB7; 
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+
+h1 {
+    font-size: 36px;
+}
+
+.curso {
+    background-color: #fff; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
+.curso img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.curso h2 {
+    color: #673AB7; 
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.curso p {
+    font-size: 16px;
+    color: #333;
+}
+
+.curso a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #673AB7; 
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.curso a:hover {
+    background-color: #512DA8; 
+}
+footer {
+    background-color: #673AB7; 
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}

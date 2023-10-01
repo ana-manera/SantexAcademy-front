@@ -28,3 +28,6 @@ $my-palette: mat.define-palette($e19-primary);
 $my-palette-accent: mat.define-palette($e19-accent);
 $my-palette-warning: mat.define-palette($e19-warn);
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
