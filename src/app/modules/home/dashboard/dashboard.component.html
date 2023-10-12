@@ -1,24 +1,39 @@
-<div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+
+    <header>
+        <h1>Bienvenido a Cursos Online</h1>
+        <p>¡Aprende lo que quieras, cuando quieras! Nuestra plataforma te ofrece una amplia variedad de cursos en línea.</p>
+        <a href="cursos.html" class="btn">Explora Nuestros Cursos</a>
+    </header>
+    <section class="features">
+      <div class="feature">
+          <i class="fas fa-graduation-cap"></i>
+          <h2>Cursos de Calidad</h2>
+          <p>Nuestros cursos son diseñados y presentados por expertos en sus campos, garantizando una educación de alta calidad.</p>
+      </div>
+      <div class="feature">
+          <i class="fas fa-clock"></i>
+          <h2>Flexibilidad de Aprendizaje</h2>
+          <p>Aprende a tu propio ritmo desde cualquier lugar y dispositivo. Nuestra plataforma se adapta a tu horario y necesidades.</p>
+      </div>
+      <div class="feature">
+          <i class="fas fa-users"></i>
+          <h2>Soporte Personalizado</h2>
+          <p>Ofrecemos asistencia personalizada cuando la necesites. Nuestro equipo de soporte está listo para ayudarte en cada paso del camino.</p>
+      </div>
+  </section>  
+    <section class="testimonials">
+        <h2>Lo que Nuestros Estudiantes Dicen</h2>
+        <div class="testimonial">
+            <p>"Este sitio web ha cambiado mi vida. Aprendí tanto y a mi propio ritmo. ¡Gracias!"</p>
+            <p>- Estudiante Satisfecho</p>
+        </div>
+        <div class="testimonial">
+            <p>"Los cursos son excelentes, y el material es fácil de entender. Lo recomendaré a mis amigos y familiares."</p>
+            <p>- Otro Estudiante Contento</p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 Cursos Online. Todos los derechos reservados.</p>
+    </footer>
+
