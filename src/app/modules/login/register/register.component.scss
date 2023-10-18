@@ -1,5 +1,5 @@
 .background-image {
-  background-image: url('https://previews.123rf.com/images/kostafly/kostafly1710/kostafly171000043/87403779-el-fondo-creativo-hermoso-fondo-para-un-sitio-o-formulario-consiste-en-formas-y-l%C3%ADneas-fant%C3%A1sticas.jpg');
+  background-image: url("https://previews.123rf.com/images/kostafly/kostafly1710/kostafly171000043/87403779-el-fondo-creativo-hermoso-fondo-para-un-sitio-o-formulario-consiste-en-formas-y-l%C3%ADneas-fant%C3%A1sticas.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -13,4 +13,7 @@
 .card {
   background-color: rgba(194, 194, 194, 0.7);
   border: none;
+  height: 40vh;
+  width: 60vh;
 }
+
