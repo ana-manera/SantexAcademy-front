@@ -77,3 +77,37 @@ export class LoginFormComponent implements OnInit {
     );
   }
 }
+
+/*
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent {
+  email: string = '';
+  password: string = '';
+
+  constructor(private http: HttpClient, private router: Router) {}
+
+  onSubmit() {
+    const userData = { email: this.email, password: this.password };
+
+    this.http.post('http://localhost:4001/auth/login', userData, { withCredentials: true })
+      .subscribe(
+        (response: any) => {
+          // Handle successful login here
+          console.log('Login successful', response);
+          // Redirect to user list page after successful login
+          this.router.navigate(['/user-list']);
+        },
+        (error) => {
+          console.error('Login failed', error);
+        }
+      );
+  }
+} */

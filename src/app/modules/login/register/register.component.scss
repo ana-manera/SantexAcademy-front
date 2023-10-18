@@ -1,19 +1,88 @@
-.background-image {
-  background-image: url("https://previews.123rf.com/images/kostafly/kostafly1710/kostafly171000043/87403779-el-fondo-creativo-hermoso-fondo-para-un-sitio-o-formulario-consiste-en-formas-y-l%C3%ADneas-fant%C3%A1sticas.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100vh;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #6A0E8E, #0077B6, #61C0BF);
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .card {
-  background-color: rgba(194, 194, 194, 0.7);
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #6A0E8E;
+  height: 100%;
+}
+
+.card h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #6A0E8E;
+  font-family: 'Cursive', cursive;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #6A0E8E;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: #6A0E8E;
+  color: #fff;
   border: none;
-  height: 40vh;
-  width: 60vh;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #0077B6;
+}
+
+.small-link {
+  color: #0077B6;
+  text-decoration: none;
+  margin: 0 10px;
+  font-style: italic;
+}
+
+.card-footer {
+  margin-top: 20px;
+  color: #6A0E8E;
+  font-weight: bold;
 }
 

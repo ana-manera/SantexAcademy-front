@@ -6,7 +6,7 @@
       </div>
       <div class="card-body">
         <h5 class="mat-h4">Iniciar Sesión para Continuar.</h5>
-        <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <form>
           <mat-form-field appearance="outline" color="primary">
             <mat-label>Email</mat-label>
             <input
@@ -33,9 +33,9 @@
               required
             />
           </mat-form-field>
-          <mat-error *ngIf="invalidPassword">Ingrese su contraseña</mat-error>
+          <mat-error  *ngIf="invalidPassword">Ingrese su contraseña</mat-error>
           <div>
-            <button mat-raised-button color="primary" type="submit" class="btn-primary">
+            <button mat-raised-button color="primary" type="submit"  class="btn-primary" routerLink="/home/dashboard" >
               <div>
                 <span>Iniciar Sesión</span>
               </div>
