@@ -3,6 +3,7 @@ import { Observable, map } from 'rxjs';
 import { User } from '../../interfaces/user';
 import { ApiService } from '../../http/api.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,9 @@ import { Router } from '@angular/router';
 export class AuthService {
   public user: User | null = null;
  // public roles: any[] = []; //falta interface para roles
-  private baseUrl = 'auth';
+  private baseUrl = 'localhost:4002/auth';
   constructor(
-    private http: ApiService,
+    private http: HttpClient,
     public router: Router
   ) {  }
 
@@ -22,16 +23,25 @@ export class AuthService {
    * @returns Observable for solicitud
    */
   public login(credentials: any): Observable<any> {
+   
+    
     const body: any = {
       email: credentials.email,
       password: credentials.pass
     }
-    return this.http.post(`${this.baseUrl}/login`, body).pipe(
-      map((response: any) => {
+    console.log(body);
+    //return this.http.post(`${this.baseUrl}/login`, body).pipe(
+      //map((response: any) => {
         //this.setUser(response);
-        return new Observable()//response;
-      })
-    );
+        //console.log(response);
+        
+        //return new Observable()//response;
+     
+        
+      //})
+    //);
+    return this.http.post(`${this.baseUrl}/login`, body);
+
   }
   /**
    * Stores logged-in user data.
@@ -51,7 +61,7 @@ export class AuthService {
     localStorage.setItem('tokenExpiration', new Date(data.tokenExpiration).toString());
     localStorage.setItem('refreshExpiration', new Date(data.refreshTokenExpiration).toString());
     // Set Authorization Header for all requests.
-    this.http.setHeader('Authorization', `Bearer ${data.token}`);
+   // this.http.setHeader('Authorization', `Bearer ${data.token}`);
   }
   /*Get user*/
   get getUser(): User {
@@ -90,7 +100,7 @@ export class AuthService {
           this.logOut();
           return;
         }
-        this.http.setHeader('Authorization', `Bearer ${token}`);
+        //this.http.setHeader('Authorization', `Bearer ${token}`);
       }
     }
   }
@@ -136,7 +146,7 @@ export class AuthService {
     localStorage.setItem('refreshToken', refreshed.refreshToken);
     localStorage.setItem('refreshExpiration', new Date(refreshed.refreshTokenExpiration).toString());
     // Set Authorization Header for all requests.
-    this.http.setHeader('Authorization', `Bearer ${refreshed.token}`);
+    //this.http.setHeader('Authorization', `Bearer ${refreshed.token}`);
   }
 
   /**
