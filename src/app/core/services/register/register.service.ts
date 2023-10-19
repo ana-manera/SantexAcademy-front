@@ -6,22 +6,18 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ContactService {
+export class RegisterService {
 
   private apiUrl = environment.API_URL;
   constructor(
     private _http: HttpClient
   ) { }
 
-  postContact(formValue:any): Observable<any[]> {
+  postRegister(formValue:any): Observable<any[]> {
     
-      let body={
-        name:'aa',
-        email: 'aa@aaa.com',
-        reason:'payment',
-        description:'prueba'
-      }
+      let body=formValue
+     
     
-    return this._http.post<any[]>(`${this.apiUrl}/query`,body);
+    return this._http.post<any[]>(`${this.apiUrl}/auth/register`,body);
   }
 }

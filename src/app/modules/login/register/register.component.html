@@ -1,34 +1,41 @@
 <body>
-  <div class="container d-flex justify-content-center align-items-center vh-100 background-image">
-      <div class="card text-center">
-          <div class="card-header">
-              <h3>Sistema Incubadora del NOC - Gestión de Cursos</h3>
-          </div>
-          <div class="card-body">
-              <h5 class="card-title text-center mb-4">Registrese.</h5>
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label d-flex justify-content-start align-items-start">Nombre</label>
-                <input type="text" class="form-control" placeholder="Ingresa tu nombre">
+    <div class="container d-flex justify-content-center align-items-center vh-100 background-image">
+        <div class="card text-center">
+            <div class="card-header">
+                <h3>Sistema Incubadora del NOC - Gestión de Cursos</h3>
             </div>
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label d-flex justify-content-start align-items-start">Apellido</label>
-              <input type="text" class="form-control" placeholder="Ingresa tu apellido">
-          </div>
-              <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label d-flex justify-content-start align-items-start">Correo</label>
-                  <input type="email" class="form-control" placeholder="Ingresa tu correo electrónico">
-              </div>
-              <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label d-flex justify-content-start align-items-start">Contraseña</label>
-                  <input type="password" class="form-control" placeholder="Ingresa tu contraseña">
-              </div>
-              <div class="text-center">
-                  <a routerLink="/home" class="btn btn-primary btn-md btn-block">Registrarse</a>
-              </div>
-          </div>
-          <div class="card-footer text-muted d-flex justify-content-start align-items-start">
-              Santex Group
-          </div>
-      </div>
-  </div>
+            <form [formGroup]="registerForm" class="card-body" (ngSubmit)="sendForm()">
+                <h5 class="card-title text-center mb-4">Registrese.</h5>
+                <mat-form-field color="primary" appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="Nombre" formControlName="first_name">
+                    <mat-error *ngIf="registerForm.get('first_name')?.hasError('required')">
+                      El Nombre es <strong>obligatorio</strong>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field color="primary" appearance="fill">
+                    <input matInput placeholder="Apellido" formControlName="last_name">
+                    <mat-error *ngIf="registerForm.get('last_name')?.hasError('required')">
+                      El apellido es <strong>obligatorio</strong>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field color="primary" appearance="fill">
+                    <input matInput placeholder="Correo Electrónico" formControlName="email">
+                    <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
+                      El correo electrónico es <strong>obligatorio</strong>
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field color="primary" appearance="fill">
+                    <input matInput placeholder="Contraseña" formControlName="password">
+                    <mat-error *ngIf="registerForm.get('password')?.hasError('required')">
+                      La contraseña es <strong>obligatoria</strong>
+                    </mat-error>
+                  </mat-form-field>
+                  <button color="accent" mat-raised-button type="submit">Registrarse</button>
+           </form>
+            <div class="card-footer text-muted d-flex justify-content-start align-items-start">
+                Santex Group
+            </div>
+        </div>
+    </div>
 </body>

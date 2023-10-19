@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
   public user: User | null = null;
  // public roles: any[] = []; //falta interface para roles
-  private baseUrl = 'localhost:4002/auth';
+  private baseUrl = 'http://localhost:4001/auth';
   constructor(
     private http: HttpClient,
     public router: Router
@@ -30,17 +30,15 @@ export class AuthService {
       password: credentials.pass
     }
     console.log(body);
-    //return this.http.post(`${this.baseUrl}/login`, body).pipe(
-      //map((response: any) => {
-        //this.setUser(response);
-        //console.log(response);
-        
-        //return new Observable()//response;
+    return this.http.post(`${this.baseUrl}/login`, body).pipe(
+    map((response: any) => {
+    this.setUser(response);
+    return response;
      
         
-      //})
-    //);
-    return this.http.post(`${this.baseUrl}/login`, body);
+      })
+    );
+   
 
   }
   /**
@@ -53,15 +51,7 @@ export class AuthService {
    */
   public setUser(data: any): void {
     this.user = data.user;
-   // this.roles = data.roles;
     localStorage.setItem('user', JSON.stringify(data.user));
-   // localStorage.setItem('roles', JSON.stringify(data.roles));
-    localStorage.setItem('token', data.token);
-    localStorage.setItem('refreshToken', data.refreshToken);
-    localStorage.setItem('tokenExpiration', new Date(data.tokenExpiration).toString());
-    localStorage.setItem('refreshExpiration', new Date(data.refreshTokenExpiration).toString());
-    // Set Authorization Header for all requests.
-   // this.http.setHeader('Authorization', `Bearer ${data.token}`);
   }
   /*Get user*/
   get getUser(): User {
@@ -76,34 +66,7 @@ export class AuthService {
   /**
    * Attempts to read user data from local Storage.
    */
-  public loadUser(): void {
-    const userStorage = localStorage.getItem('user');
-    const tokenStorage = localStorage.getItem('token');
-    const permissionsStorage = localStorage.getItem('permissions');
-    const rolesStorage = localStorage.getItem('roles');
-    const refreshTokenStorage = localStorage.getItem('refreshToken');
-    if (
-      userStorage !== null &&
-      tokenStorage !== null &&
-      refreshTokenStorage !== null &&
-      permissionsStorage !== null &&
-      rolesStorage !== null
-    ) {
-      const user = JSON.parse(userStorage);
-      const token = tokenStorage;
-      const refreshToken = refreshTokenStorage;
-      if (user.length !== 0 && token !== '' && refreshToken !== '') {
-        try {
-          this.user = user;
-        //  this.roles = roles;
-        } catch (err) {
-          this.logOut();
-          return;
-        }
-        //this.http.setHeader('Authorization', `Bearer ${token}`);
-      }
-    }
-  }
+
   /**
    * Check if the user is loaded
    */

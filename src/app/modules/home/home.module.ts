@@ -15,7 +15,16 @@ import { ContactComponent } from './contact/contact.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ListCursosComponent } from './list-cursos/list-cursos.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AgregarEditarCursoComponent } from './agregar-editar-curso/agregar-editar-curso.component';
+import { AboutComponent } from './about/about.component';
+import { ShopComponent } from './shop/shop.component';
+import { CourseComponent } from './course/course.component';
+
 
 
 
@@ -23,7 +32,12 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     HomePageComponent,
     DashboardComponent,
-    ContactComponent
+    ContactComponent,
+    ListCursosComponent,
+    AgregarEditarCursoComponent,
+    AboutComponent,
+    ShopComponent,
+    CourseComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +54,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    FormsModule,
+
   ]
 })
 export class HomeModule { }
