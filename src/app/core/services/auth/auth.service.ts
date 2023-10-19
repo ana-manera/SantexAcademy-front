@@ -23,8 +23,8 @@ export class AuthService {
    * @returns Observable for solicitud
    */
   public login(credentials: any): Observable<any> {
-   
-    
+
+
     const body: any = {
       email: credentials.email,
       password: credentials.pass
@@ -34,13 +34,35 @@ export class AuthService {
     map((response: any) => {
     this.setUser(response);
     return response;
-     
-        
+
+
       })
     );
-   
+
 
   }
+
+  public sendForm(credentials: any): Observable<any> {
+
+
+    const body: any = {
+      first_name: credentials.first_name,
+      last_name: credentials.last_name,
+      email: credentials.email,
+      password: credentials.pass
+    }
+    console.log(body);
+    return this.http.post(`${this.baseUrl}/register`, body).pipe(
+    map((response: any) => {
+    //this.setUser(response);
+    return response;
+
+      })
+    );
+
+  }
+
+
   /**
    * Stores logged-in user data.
    * @param user User data info.

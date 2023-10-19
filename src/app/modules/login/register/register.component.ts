@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../core/services/auth/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from 'src/app/core/services/register/register.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -10,8 +11,11 @@ import { RegisterService } from 'src/app/core/services/register/register.service
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+  @Output() RegisterResponse: EventEmitter<any> = new EventEmitter();
   public registerForm: FormGroup = new FormGroup({});
   RegisterService: any;
+  private subscriptions: Subscription = new Subscription();
+
   constructor(
     public authenticationService: AuthService,
     private registerService: RegisterService,
@@ -38,14 +42,32 @@ export class RegisterComponent implements OnInit {
         null,
         Validators.compose([Validators.required])
       ),
-      
-     
+
+
     });
   }
   sendForm(){
     console.log(this.registerForm.value);
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
+      this.subscriptions.add(
+        this.authenticationService.sendForm(this.registerForm.value).subscribe({
+          next: (res: any) => {
+
+
+            this.RegisterResponse.emit(res);
+
+              const returnUrl =
+                this.activated.snapshot.queryParams['returnUrl'] ||
+                '/auth/login';
+              this.router.navigateByUrl(returnUrl);
+
+          },
+          error: (e: any) => {
+            console.error(e);
+          },
+        })
+      );
+     /* console.log(this.registerForm.value);
       this.registerService.postRegister(this.registerForm.value).subscribe((res: any) => {
 
       })
@@ -53,9 +75,10 @@ export class RegisterComponent implements OnInit {
       alert('¡Gracias por enviar el formulario!');
     } else {
       console.error('Formulario inválido. Por favor, complete todos los campos requeridos.');
-    }
+    }*/
   }
 
-    
+
   }
 
+}
