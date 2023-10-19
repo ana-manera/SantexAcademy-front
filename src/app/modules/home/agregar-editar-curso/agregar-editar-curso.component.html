@@ -1,0 +1,71 @@
+<div class="container">
+  <h2 mat-dialog-title>{{ operacion }} Curso</h2>
+ 
+</div>
+<form [formGroup]="form" (ngSubmit)="addEditCurso()">
+
+  <mat-dialog-content >
+
+    <div class="row">
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre del curso</mat-label>
+          <input formControlName="course_name" matInput placeholder="Ingrese nombre del curso" autocomplete="off">
+        </mat-form-field>
+        <div class="error">
+          <span *ngIf="form.get('course_name')?.hasError('required') && form.get('course_name')?.touched">
+            El nombre del curso es un campo <strong>requerido</strong>  
+          </span>
+        </div>
+      </div>
+  
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>Descripción</mat-label>
+          <input formControlName="description" matInput placeholder="Ingrese descrición del curso" autocomplete="off">
+        </mat-form-field>
+        <div class="error">
+          <span *ngIf="form.get('description')?.hasError('required') && form.get('description')?.touched">
+            La descrición es un campo <strong>requerido</strong>  
+          </span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>Modalidad</mat-label>
+          <input formControlName="modality" matInput placeholder="Ingrese la modalidad del curso" autocomplete="off">
+        </mat-form-field>
+        <div class="error">
+          <span *ngIf="form.get('modality')?.hasError('required') && form.get('modality')?.touched">
+            La modalidad del curso es un campo <strong>requerido</strong>  
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column">
+        <mat-form-field appearance="fill">
+          <mat-label>Precio</mat-label>
+          <input formControlName="price" matInput placeholder="Ingrese el precio del curso" autocomplete="off">
+        </mat-form-field>
+        <div class="error">
+          <span *ngIf="form.get('price')?.hasError('required') && form.get('price')?.touched">
+            El precio del curso es un campo <strong>requerido</strong>  
+          </span>
+        </div>
+      </div>
+    </div>
+  
+  
+    
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button type="button" (click)="cancelar()" mat-button>Cancelar</button>
+    <button type="submit" mat-button cdkFocusInitial>Aceptar</button>
+  </mat-dialog-actions>
+  
+</form>

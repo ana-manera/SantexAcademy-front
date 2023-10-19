@@ -48,13 +48,15 @@ export class LoginFormComponent implements OnInit {
       this.subscriptions.add(
         this.authenticationService.login(this.loginForm.value).subscribe({
           next: (res: any) => {
+           
+            
             this.LoginResponse.emit(res);
-            if (this.authenticationService.isLoggedIn()) {
+             
               const returnUrl =
                 this.activated.snapshot.queryParams['returnUrl'] ||
                 '/home/dashboard';
               this.router.navigateByUrl(returnUrl);
-            }
+            
           },
           error: (e: any) => {
             console.error(e);
