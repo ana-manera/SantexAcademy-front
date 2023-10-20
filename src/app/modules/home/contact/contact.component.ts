@@ -15,10 +15,10 @@ export class ContactComponent {
     private contactService: ContactService,
   ) {
     this.addressForm = this.fb.group({
-      name: ['', Validators.required],
-      mail: ['', Validators.required],
-      reason: ['', Validators.required],
-      description: ['', Validators.required],
+      name: [''],
+      mail: [''],
+      reason: [''],
+      description: [''],
     });
   }
 
@@ -26,7 +26,7 @@ export class ContactComponent {
     if (this.addressForm.valid) {
       console.log(this.addressForm.value);
       this.contactService.postContact(this.addressForm.value).subscribe((res: any) => {
-
+      this.addressForm.reset()
       })
 
       alert('¡Gracias por enviar el formulario!');
