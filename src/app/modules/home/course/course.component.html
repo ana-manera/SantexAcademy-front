@@ -1,18 +1,16 @@
     <header>
         <h1>Cursos Disponibles</h1>
     </header>
-    <main>
+    <main class="main-course">
         <div class="curso"
         *ngFor="let course of courses">
-            <img src="curso1.jpg" alt="Curso 1">
-            <h2>Nombre del Curso 1</h2>
+            <h2>{{course.course_name}}</h2>
             <p>{{course.description}}</p>
+            <p>{{course.modality}}</p>
+            <p>{{course.duration}}</p>
+
             <a href="detalle_curso1.html">Ver más</a>
         <div>
     <main>
-
-    <footer>
-        <p>&copy; 2023 Cursos Online. Todos los derechos reservados.</p>
-    </footer>
 
 

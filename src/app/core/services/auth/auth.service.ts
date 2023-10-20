@@ -49,7 +49,7 @@ export class AuthService {
       first_name: credentials.first_name,
       last_name: credentials.last_name,
       email: credentials.email,
-      password: credentials.pass
+      password: credentials.password
     }
     console.log(body);
     return this.http.post(`${this.baseUrl}/register`, body).pipe(

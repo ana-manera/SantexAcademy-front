@@ -14,10 +14,11 @@ export class RegisterService {
   ) { }
 
   postRegister(formValue:any): Observable<any[]> {
-    
+
       let body=formValue
+      console.log(body)
      
-    
+
     return this._http.post<any[]>(`${this.apiUrl}/auth/register`,body);
   }
 }
